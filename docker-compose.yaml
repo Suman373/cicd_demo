@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+    server:
+      build: .
+      container_name: cicd_server
+      restart: always
+      ports:
+        - 5000:5000
+      volumes:
+        - ./index.js:/usr/src/app/index.js 
+        # mount the index.js (watched by nodemon) to our WORKDIR (Dockerfile) for live reloading
+      environment:
+        - PORT=5000
+        - SECRET=sumanCICDproj123
