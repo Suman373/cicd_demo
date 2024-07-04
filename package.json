@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "node index.js",
-    "build": "echo 'Running build script` ",
+    "build": "echo 'Running build script' ",
     "dev": "nodemon --legacy-watch index.js"
   },
   "keywords": [],
