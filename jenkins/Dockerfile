@@ -1,4 +1,3 @@
-# from https://www.jenkins.io/doc/book/installing/docker/
 FROM jenkins/jenkins:2.452.2-jdk17
 USER root
 RUN apt-get update && apt-get install -y lsb-release
