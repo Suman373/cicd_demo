@@ -1,9 +1,6 @@
 pipeline{
-    agent {
-        docker{
-            image 'node:18-alpine'
-        }
-    }
+    agent any
+    {tools{nodejs "nodejs:22.4.0"}}
     stages{
         // checkout source code
         stage("Checkout"){
