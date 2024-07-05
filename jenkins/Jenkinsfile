@@ -1,34 +1,31 @@
-pipeline{
+pipeline {
     agent any
-    {tools{nodejs "nodejs:22.4.0"}}
-    stages{
-        // checkout source code
-        stage("Checkout"){
-            steps{
+    tools {
+        nodejs 'nodejs:22.4.0'  // Define Node.js tool with the specified version
+    }
+    stages {
+        stage('Checkout') {
+            steps {
                 checkout scm
             }
         }
-        // install deps
-        stage("Install dependencies"){
-            steps{
+        stage('Install dependencies') {
+            steps {
                 sh 'npm install'
             }
         }
-        // build the app (linting,etc)
-        stage("Build"){
-            steps{
+        stage('Build') {
+            steps {
                 sh 'npm run build'
             }
         }
-        // run unit tests
-        stage("Test"){
-            steps{
+        stage('Test') {
+            steps {
                 sh 'npm test'
             }
         }
-        // build docker image
-        stage("Build Image"){
-            steps{
+        stage('Build Image') {
+            steps {
                 sh 'docker build -t cicd_demo:latest .'
             }
         }
