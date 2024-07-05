@@ -24,7 +24,7 @@ pipeline {
                 sh 'npm test'
             }
         }
-        stage('Build Image') {
+        stage('Build Docker Image') {
             steps {
                 sh 'docker build -t cicd_demo:latest .'
             }
